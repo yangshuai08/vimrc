@@ -1,7 +1,7 @@
 # Installation
 1. Clone this repo:
 ```
-git clone https://github.com/yangshuai08/vimrc.git
+git clone https://github.com/ys08/vimrc.git
 ```
 2. install fzf using brew
 ```
