@@ -1,18 +1,32 @@
-" put dracula theme in ~/.vim/pack/my/opt/dracula
-packadd! dracula
-colorscheme dracula
+" Part 1 : GENERAL SETTINGS -------------------------------- {{{
+syntax on
+" (1) 3rd party plugin ------------- {{{
+" theme: dracula, onedark {{{
+"packadd! onedark
+"colorscheme onedark
+" }}}
+" theme: PaperColor {{{
+"set background=light "dark or light
+colorscheme papercolor
+let g:airline_theme = "papercolor"
+" }}}
 
 " brew install fzf
 set rtp+=/usr/local/opt/fzf
-nnoremap <silent> <c-p> :w \| FZF<cr>
+" }}}
 
-" enable syntax highlighting
-syntax on
+" (2) Basic settings --------------- {{{
+"  set <leader>
+let mapleader = ","
+let maplocalleader = ","
+
+" always start editing with all folds closed
+set foldlevelstart=0
 
 " indent when moving to the next line while writing code
 set autoindent
 
-" highlight the 80th column 
+" highlight the 80th column
 set colorcolumn=80
 
 " highlight current line
@@ -30,7 +44,10 @@ set shiftwidth=4
 " show the maching part of the pair for [] {} and ()
 set showmatch
 
-" 
+" match time (0.1s per unit)
+set matchtime=5
+
+"
 set linebreak
 
 " visual autocomplete for command menu
@@ -40,24 +57,108 @@ set wildmenu
 set relativenumber
 
 " show current position
-set ruler
+" set ruler
+" always display statusline, absolute path to the file(truncated if necessary), switch to the right side,buffer number, current line and column, separator, total lines
+set laststatus=2
+set statusline=%.20F
+set statusline+=%=
+set statusline+=%n:
+set statusline+=[%l-%c
+set statusline+=/
+set statusline+=%L]
 
-" highlight search results
+" highlight the search result on which you’ll land as you type it, and once you’ve pressed Enter to run your search, highlighting all of the matches
+set incsearch
 set hlsearch
 
 " use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
 
+" convert tabs to space
+set expandtab
+
+" align by >> or <<
+set shiftround
+
+"
+filetype plugin indent on
+" }}}
+" }}}
+
+" Part 2: KEY MAPPINGS ------------------------------------- {{{
+" Edit my Vimrc file
+nnoremap <leader>ev :vsplit ~/.vim/vimrc<CR>
+
+" Source my Vimrc file
+nnoremap <leader>sv :source ~/.vim/vimrc<CR>
+
+" word to uppercase
+inoremap <c-u> <esc>viwU<esc>Wa
+
+" surround the word in quotes
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+
+" list buffers and jump to a chosen one
+nnoremap  <leader>b :ls<CR>:b<space>
+
+" move vertically by visual line (don't skip wrapped lines)
+" nnoremap j gj
+" nnoremap k gk
+
+" toggle highlight
+nnoremap <leader>h :set hlsearch!<CR>
+
+" fzf mapping
+nnoremap <silent> <c-p> :w \| FZF<CR>
+" }}}
+
+" Part 3: FILETYPE-SPECIFIC SETTINGS ----------------------- {{{
+" (1) Javascript file settings ----- {{{
+augroup filetype_javascript
+    autocmd!
+    " comment code
+    autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+augroup END
+" }}}
+
+" (2) Python file settings --------- {{{
 " enable all python syntax highlighting features
 let python_highlight_all = 1
 
-" list buffers and jump to a chosen one
-nnoremap <Leader>b :ls<CR>:b<Space>
+augroup filetype_python
+    autocmd!
+    " comment code
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+augroup END
+" }}}
 
-" move vertically by visual line (don't skip wrapped lines)
-nmap j gj
-nmap k gk
+" (3) HTML file settings ----------- {{{
+augroup filetype_html
+    autocmd!
+    " fold tag
+    autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup END
+" }}}
 
-" 
-filetype plugin indent on
+" (4) Markdown file settings ------- {{{
+augroup filetype_markdown
+    autocmd!
+    " for H1 and H2
+    autocmd FileType markdown :iabbrev <buffer> === ======
+    autocmd FileType markdown :iabbrev <buffer> --- ------
+    " change header
+    onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
+    onoremap ah :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
+augroup END
+" }}}
+
+" (5) Vimscript file settings ------ {{{
+augroup filetype_vim
+    autocmd!
+    " use the marker method of folding for any vimscript files
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+" }}}
