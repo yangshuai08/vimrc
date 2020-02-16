@@ -6,7 +6,7 @@ syntax on
 "colorscheme onedark
 " }}}
 " theme: PaperColor {{{
-"set background=light "dark or light
+set background=light "dark or light
 colorscheme papercolor
 let g:airline_theme = "papercolor"
 " }}}
