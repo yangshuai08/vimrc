@@ -1,12 +1,13 @@
 " Part 1 : GENERAL SETTINGS -------------------------------- {{{
 syntax on
+filetype plugin indent on
 " (1) 3rd party plugin ------------- {{{
 " theme: dracula, onedark {{{
 "packadd! onedark
 "colorscheme onedark
 " }}}
 " theme: PaperColor {{{
-set background=light "dark or light
+set background=dark "dark or light
 colorscheme papercolor
 let g:airline_theme = "papercolor"
 " }}}
@@ -80,9 +81,6 @@ set expandtab
 
 " align by >> or <<
 set shiftround
-
-"
-filetype plugin indent on
 " }}}
 " }}}
 
@@ -107,8 +105,11 @@ nnoremap  <leader>b :ls<CR>:b<space>
 " nnoremap j gj
 " nnoremap k gk
 
-" toggle highlight
+" toggle highlight, also see :noh
 nnoremap <leader>h :set hlsearch!<CR>
+
+" external grep current word in current directory
+"nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>:redraw!<cr>
 
 " fzf mapping
 nnoremap <silent> <c-p> :w \| FZF<CR>
@@ -124,13 +125,17 @@ augroup END
 " }}}
 
 " (2) Python file settings --------- {{{
-" enable all python syntax highlighting features
-let python_highlight_all = 1
-
 augroup filetype_python
     autocmd!
     " comment code
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+
+    " enable all python syntax highlighting features
+    let python_highlight_all = 1
+    " 3rd party plugin customization
+    let g:python_pep8_indent_multiline_string = -2
+    let g:python_pep8_indent_hang_closing = 1
+
 augroup END
 " }}}
 
@@ -157,6 +162,8 @@ augroup END
 " (5) Vimscript file settings ------ {{{
 augroup filetype_vim
     autocmd!
+    " comment code
+    autocmd FileType vim nnoremap <buffer> <localleader>c I"<esc>
     " use the marker method of folding for any vimscript files
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
