@@ -1,5 +1,9 @@
 " Grep operator: {{{
 "
+" Usage: normal mode run <leader>g{motion}; visual mode select 
+" characters and run <leader>g; both situations will search the WORD
+" recursively in current folder
+"
 " @by <Learn Vimscript the hard way>
 "
 " }}}

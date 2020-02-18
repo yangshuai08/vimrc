@@ -106,7 +106,10 @@ nnoremap  <leader>b :ls<CR>:b<space>
 " nnoremap k gk
 
 " toggle highlight, also see :noh
-nnoremap <leader>h :set hlsearch!<CR>
+"nnoremap <leader>h :set hlsearch!<CR>
+
+" switch window
+nnoremap <leader>w <c-w>w
 
 " external grep current word in current directory
 "nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>:redraw!<cr>
