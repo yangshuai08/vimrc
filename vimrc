@@ -111,6 +111,9 @@ nnoremap  <leader>b :ls<CR>:b<space>
 " switch window
 nnoremap <leader>w <c-w>w
 
+" switch buffer
+nnoremap <leader><tab> <c-^>
+
 " external grep current word in current directory
 "nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>:redraw!<cr>
 

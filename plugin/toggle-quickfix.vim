@@ -2,11 +2,11 @@
 "
 " Usage: In normal mode, run <leader>q
 "
-" @by <Learn Vimscript the hard way>
+" @ref <Learn Vimscript the hard way>
 "
 " }}}
 
-nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
+nnoremap <silent> <leader>q :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 

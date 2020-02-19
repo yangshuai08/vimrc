@@ -4,7 +4,7 @@
 " characters and run <leader>g; both situations will search the WORD
 " recursively in current folder
 "
-" @by <Learn Vimscript the hard way>
+" @ref <Learn Vimscript the hard way>
 "
 " }}}
 
