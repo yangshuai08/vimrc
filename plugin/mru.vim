@@ -25,7 +25,6 @@ nnoremap <silent> <leader>r :call <SID>Mru()<cr>
 let g:MRU_FILES = []
 let g:mru_files_len = 10
 let g:mru_buffer_is_open = 0
-let s:active_window = 1
 
 function s:Mru()
     if g:mru_buffer_is_open
@@ -35,6 +34,7 @@ function s:Mru()
         call s:MruList()
         let g:mru_buffer_is_open = 1
         let g:mru_buffer_number = bufnr('%')
+        "let s:active_window = winnr()
     endif
 endfunction
 
@@ -58,7 +58,7 @@ function s:MruList()
     execute 'belowright '.rows.'new'
     setlocal buftype=nofile
     setlocal filetype=MRU
-    let s:mru_window = winnr('$') " last window
+    "let s:mru_window = winnr('$') " last window
 
     let n = len(g:MRU_FILES)
     let i = 0
@@ -76,13 +76,13 @@ function s:OpenFile()
     execute 'edit ' . path
 endfunction
 
-function s:BrowseFile()
-    let path = getline('.')
-    execute s:active_window . "wincmd w"
-    execute 'edit ' . path
-    execute s:mru_window . "wincmd w"
-endfunction
+"function s:BrowseFile()
+    "let path = getline('.')
+    "execute s:active_window . "wincmd w"
+    "execute 'edit ' . path
+    "execute s:mru_window . "wincmd w"
+"endfunction
 
 autocmd FileType MRU nnoremap <buffer> e :call <SID>OpenFile()<cr>
-autocmd FileType MRU nnoremap <buffer> <tab> :call <SID>BrowseFile()<cr>
+"autocmd FileType MRU nnoremap <buffer> <tab> :call <SID>BrowseFile()<cr>
 autocmd FileType MRU nnoremap <buffer> : <nop>

@@ -13,3 +13,6 @@
 [submodule "pack/dist/start/fugitive"]
 	path = pack/dist/start/fugitive
 	url = https://tpope.io/vim/fugitive.git
+[submodule "pack/dist/start/nerdtree"]
+	path = pack/dist/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git

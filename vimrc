@@ -117,8 +117,11 @@ nnoremap <leader><tab> <c-^>
 " external grep current word in current directory
 "nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>:redraw!<cr>
 
+" 3rd party plugin mapping
 " fzf mapping
 nnoremap <silent> <c-p> :w \| FZF<CR>
+" Nerd Tree mapping
+nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 " }}}
 
 " Part 3: FILETYPE-SPECIFIC SETTINGS ----------------------- {{{
