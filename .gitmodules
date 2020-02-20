@@ -19,3 +19,9 @@
 [submodule "pack/dist/start/auto-pairs"]
 	path = pack/dist/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "pack/dist/start/vim-javascript"]
+	path = pack/dist/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "pack/dist/start/VimCompletesMe"]
+	path = pack/dist/start/VimCompletesMe
+	url = https://github.com/ajh17/VimCompletesMe.git

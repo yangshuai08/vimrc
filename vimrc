@@ -3,13 +3,13 @@ syntax on
 filetype plugin indent on
 " (1) 3rd party plugin ------------- {{{
 " theme: dracula, onedark {{{
-"packadd! onedark
-"colorscheme onedark
+packadd! dracula
+colorscheme dracula
 " }}}
 " theme: PaperColor {{{
-set background=dark "dark or light
-colorscheme papercolor
-let g:airline_theme = "papercolor"
+"set background=dark "dark or light
+"colorscheme papercolor
+"let g:airline_theme = "papercolor"
 " }}}
 
 " brew install fzf
@@ -17,6 +17,15 @@ set rtp+=/usr/local/opt/fzf
 
 " emmet-vim
 let g:user_emmet_leader_key = ','
+" set filetype to javascript.jsx
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
+" auto-pairs
+let g:AutoPairsShortcutToggle = ''
 
 " }}}
 
@@ -134,6 +143,8 @@ augroup filetype_javascript
     autocmd!
     " comment code
     autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+
+    autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 " }}}
 
