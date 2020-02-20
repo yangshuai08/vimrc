@@ -14,6 +14,10 @@ let g:airline_theme = "papercolor"
 
 " brew install fzf
 set rtp+=/usr/local/opt/fzf
+
+" emmet-vim
+let g:user_emmet_leader_key = ','
+
 " }}}
 
 " (2) Basic settings --------------- {{{
@@ -121,7 +125,7 @@ nnoremap <leader><tab> <c-^>
 " fzf mapping
 nnoremap <silent> <c-p> :w \| FZF<CR>
 " Nerd Tree mapping
-nnoremap <silent> <leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 " }}}
 
 " Part 3: FILETYPE-SPECIFIC SETTINGS ----------------------- {{{

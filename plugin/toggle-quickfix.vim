@@ -1,12 +1,12 @@
 " Quickfix window toggle: {{{
 "
-" Usage: In normal mode, run <leader>q
+" Usage: In normal mode, run <leader>qf
 "
 " @ref <Learn Vimscript the hard way>
 "
 " }}}
 
-nnoremap <silent> <leader>q :call <SID>QuickfixToggle()<cr>
+nnoremap <silent> <leader>qf :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 

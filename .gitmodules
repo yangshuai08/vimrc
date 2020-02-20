@@ -16,3 +16,6 @@
 [submodule "pack/dist/start/nerdtree"]
 	path = pack/dist/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/dist/start/emmet-vim"]
+	path = pack/dist/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
