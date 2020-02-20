@@ -4,9 +4,6 @@
 [submodule "pack/dist/start/vim-airline"]
 	path = pack/dist/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "pack/dist/start/vim-polyglot"]
-	path = pack/dist/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
 [submodule "pack/dist/start/onedark"]
 	path = pack/dist/start/onedark
 	url = https://github.com/joshdick/onedark.vim.git
@@ -19,3 +16,6 @@
 [submodule "pack/dist/start/emmet-vim"]
 	path = pack/dist/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "pack/dist/start/auto-pairs"]
+	path = pack/dist/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
