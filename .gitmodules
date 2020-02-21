@@ -28,3 +28,9 @@
 [submodule "pack/dist/start/repeat"]
 	path = pack/dist/start/repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "pack/dist/start/scss-syntax"]
+	path = pack/dist/start/scss-syntax
+	url = https://github.com/cakebaker/scss-syntax.vim
+[submodule "pack/dist/start/vim-css3-syntax"]
+	path = pack/dist/start/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git

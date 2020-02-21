@@ -3,12 +3,12 @@ syntax on
 filetype plugin indent on
 " (1) 3rd party plugin ------------- {{{
 " theme: dracula, onedark {{{
-packadd! dracula
-colorscheme dracula
+"packadd! dracula
+"colorscheme dracula
 " }}}
-" theme: PaperColor {{{
+" theme in colors folder {{{
 "set background=dark "dark or light
-"colorscheme papercolor
+colorscheme molokai
 "let g:airline_theme = "papercolor"
 " }}}
 
@@ -171,19 +171,26 @@ augroup filetype_html
 augroup END
 " }}}
 
-" (4) Markdown file settings ------- {{{
-augroup filetype_markdown
+" (4) css/scss file settings ----------- {{{
+augroup filetype_css
     autocmd!
-    " for H1 and H2
-    autocmd FileType markdown :iabbrev <buffer> === ======
-    autocmd FileType markdown :iabbrev <buffer> --- ------
-    " change header
-    onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
-    onoremap ah :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
+    autocmd FileType css,scss setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 " }}}
 
-" (5) Vimscript file settings ------ {{{
+" (5) Markdown file settings ------- {{{
+augroup filetype_markdown
+    autocmd!
+    " for H1 and H2
+    "autocmd FileType markdown :iabbrev <buffer> === ======
+    "autocmd FileType markdown :iabbrev <buffer> --- ------
+    " change header
+    "onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
+    "onoremap ah :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
+augroup END
+" }}}
+
+" (6) Vimscript file settings ------ {{{
 augroup filetype_vim
     autocmd!
     " comment code
