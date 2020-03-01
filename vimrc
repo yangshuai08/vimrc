@@ -22,6 +22,9 @@ let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
 \  },
+\  'html' : {
+\      'indent_blockelement': 1,
+\  }
 \}
 
 " auto-pairs
