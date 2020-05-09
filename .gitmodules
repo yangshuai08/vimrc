@@ -34,3 +34,9 @@
 [submodule "pack/dist/start/vim-jsx-pretty"]
 	path = pack/dist/start/vim-jsx-pretty
 	url = https://github.com/maxmellon/vim-jsx-pretty
+[submodule "pack/dist/start/vim-mucomplete"]
+	path = pack/dist/start/vim-mucomplete
+	url = https://github.com/lifepillar/vim-mucomplete.git
+[submodule "pack/dist/start/jedi-vim"]
+	path = pack/dist/start/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git

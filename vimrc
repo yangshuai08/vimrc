@@ -30,7 +30,17 @@ let g:user_emmet_settings = {
 " auto-pairs
 let g:AutoPairsShortcutToggle = ''
 
-" }}}
+" vim-mucomplete
+set completeopt+=longest,menuone,noinsert
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#completion_delay = 300
+let g:mucomplete#chains = { 'python': ['path', 'keyn']}
+set belloff+=ctrlg
+" If that still doesn't make it fast enough try the settings below,
+"let g:pymode_rope = 0
+"let g:jedi#show_call_signatures = "0"
+"let g:jedi#popup_on_dot = 0
+"" }}}
 
 " (2) Basic settings --------------- {{{
 "  set <leader>
